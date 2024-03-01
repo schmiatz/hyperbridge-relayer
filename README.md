@@ -1,5 +1,5 @@
 # What does this Repo?
-This Repo contains an ansible Playbook, that will install a Hyperbridge Node on your Ubuntu 22.04 Server.
+This Repo contains an ansible Playbook, that will install Docker on your Ubuntu 22.04 Server, that will create a Hyperbridge-Relayer Container on your Machine.    
 
 # How to use this Playbook?
 
@@ -35,6 +35,7 @@ You need to specify your etherscan API here.
 #### eth_rpc and all the other _rpc variables
 Here you need to define the RPC http(s) addresses of the Sepolia RPCs you want to connect to the relayer.    
 You dont have to connect all the chains, two are enough to run the relayer.   
+Just leave the rpc variables that you dont want to use commented out.   
 
 #### signer
 The Privatekey that will deliver the messages. You will need to have the native Token for the Chains on that key.   
