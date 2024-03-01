@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  tesseract_relayer:
+    image: polytopelabs/tesseract:latest
+    volumes:
+      - /home/{{ system_username }}/hyperbridge-relayer:/home/root
+    command: --config=/home/root/config.toml --db=/home/root/dev.db
+    network_mode: host
+    restart: on-failure

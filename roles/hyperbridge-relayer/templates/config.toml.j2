@@ -1,0 +1,133 @@
+# Hyperbridge config, required
+[hyperbridge]
+# Hyperbridge chain spec, either one of Dev, Gargantua or Messier
+chain = "Dev"
+# Hyperbidge node ws rpc endpoint.
+rpc_ws = "ws://127.0.0.1:9944" # example endpoint
+
+{% if eth_rpc is defined %}  
+[ethereum]
+# configuration type
+type = "ethereum_sepolia"
+# State machine identifier
+state_machine = { Ethereum = "ExecutionLayer" }
+# http(s) rpc url for sepolia
+rpc_url = "{{ eth_rpc }}"
+# consensus state identifier for sepolia on hyperbridge
+consensus_state_id = "ETH0"
+# etherscan api key for querying Ethereum token price
+etherscan_api_key = "{{ etherscan_api_key }}"
+# Contract address of the HandlerV1 contract
+handler = "{{ eth_handler }}"
+# Contract address of the IsmpHost contract
+ismp_host = "0x9DF353352b469782AB1B0F2CbBFEC41bF1FDbDb3"
+# hex-encoded private key for the relayer
+signer = "{{ signer }}"
+{% endif %}
+
+{% if arbitrum_rpc is defined %} 
+[arbitrum]
+# configuration type
+type = "arbitrum"
+# State machine identifier
+state_machine = { Ethereum = "Arbitrum" }
+# http(s) rpc url for arbitrum
+rpc_url = "{{ arbitrum_rpc }}"
+# consensus state identifier for arbitrum on hyperbridge, L2s use ethereum as their consensus oracle
+consensus_state_id = "ETH0"
+# etherscan api key for querying Ethereum token price
+etherscan_api_key = "{{ etherscan_api_key }}"
+# Contract address of the HandlerV1 contract
+handler = "0xFb9CDe6EBA0bBfA0E7ed2603Ea659E3511A98B41"
+# Contract address of the IsmpHost contract
+ismp_host = "0x424e6971EB1C693cf4296d4bdb42aa0F32a0dd9e"
+# hex-encoded private key for the relayer
+signer = "{{ signer }}"
+{% endif %}
+
+{% if optimism_rpc is defined %}
+[optimism]
+# configuration type
+type = "optimism"
+# State machine identifier
+state_machine = { Ethereum = "Optimism" }
+# http(s) rpc url for optimism
+rpc_url = "{{ optimism_rpc }}"
+# consensus state identifier for optimism on hyperbridge, L2s use ethereum as their consensus oracle
+consensus_state_id = "ETH0"
+# etherscan api key for querying Ethereum token price
+etherscan_api_key = "{{ etherscan_api_key }}"
+# Contract address of the HandlerV1 contract
+handler = "0xa25151598Dc180fc03635858f37bDF8427f47845"
+# Contract address of the IsmpHost contract
+ismp_host = "0x1B58A47e61Ca7604b634CBB00b4e275cCd7c9E95"
+# hex-encoded private key for the relayer
+signer = "{{ signer }}"
+{% endif %}
+
+{% if base_rpc is defined %}
+[base]
+# configuration type
+type = "base"
+# State machine identifier
+state_machine = { Ethereum = "Base" }
+# http(s) rpc url for base
+rpc_url = "{{ base_rpc }}"
+# consensus state identifier for base on hyperbridge, L2s use ethereum as their consensus oracle
+consensus_state_id = "ETH0"
+# etherscan api key for querying Ethereum token price
+etherscan_api_key = "{{ etherscan_api_key }}"
+# Contract address of the HandlerV1 contract
+handler = "0x4B0c9cDA104D131aF12280Bb074d6B456F467C47"
+# Contract address of the IsmpHost contract
+ismp_host = "0x4c876500A13cc3825D343b5Ac791d3A4913bF14f"
+# hex-encoded private key for the relayer
+signer = "{{ signer }}"
+{% endif %}
+
+{% if bsc_rpc is defined %}
+[bsc]
+# configuration type
+type = "bsc"
+# State machine identifier
+state_machine = "Bsc"
+# http(s) rpc url for binance smart chain
+rpc_url = "{{ bsc_rpc }}"
+# consensus state identifier for binance smart chain on hyperbridge
+consensus_state_id = "BSC0"
+# etherscan api key for querying BNB token price
+etherscan_api_key = "{{ etherscan_api_key }}"
+# Contract address of the HandlerV1 contract
+handler = "0x43a0BcC347894303f93905cE137CB3b804bE990d"
+# Contract address of the IsmpHost contract
+ismp_host = "0x022DDE07A21d8c553978b006D93CDe68ac83e677"
+# hex-encoded private key for the relayer
+signer = "{{ signer }}"
+{% endif %}
+
+# Relayer config, required
+[relayer]
+# Hyperbridge chain spec, either one of Dev, Gargantua or Messier
+chain = "Dev"
+# Define your profitability configuration. 0 -> 0% i.e relay all requests, even unprofitable ones. 1 -> 1%. ie fees provided for requests must be profitable by at least 1%. etc. 
+minimum_profit_percentage = 0
+# (Optional) If not empty, will filter requests to be delivered by originating module identifier (eg contract address)
+module_filter = []
+# (Optional) If not empty, only deliver to the specied state-machines
+delivery_endpoints = [
+{% if eth_rpc is defined %}
+    { Ethereum = "ExecutionLayer" },
+{% endif %}
+{% if arbitrum_rpc is defined %}
+    { Ethereum = "Arbitrum" },
+{% endif %}
+{% if optimism_rpc is defined %}
+    { Ethereum = "Optimism" },
+{% endif %}
+{% if base_rpc is defined %}
+    { Ethereum = "Base" },
+{% endif %}
+{% if bsc_rpc is defined %}
+    "Bsc"
+{% endif %}
+]

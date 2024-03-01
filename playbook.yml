@@ -1,0 +1,7 @@
+---
+- hosts: all
+  become: true
+  gather_facts: false
+  roles:
+    - docker
+    - hyperbridge-relayer

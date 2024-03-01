@@ -1,0 +1,49 @@
+---
+- name: create directory for hyperbridge-relayer
+  file:
+    path: /home/{{ system_username }}/hyperbridge-relayer
+    state: directory
+    owner: "{{ system_username }}"
+    group: "{{ system_username }}"
+
+- name: copy docker compose template
+  template:
+    src: ./roles/hyperbridge-relayer/templates/docker-compose.yml.j2
+    dest: /home/{{ system_username }}/hyperbridge-relayer/docker-compose.yml
+    owner: "{{ system_username }}"
+    group: "{{ system_username }}"
+  register: docker
+
+- name: copy config.toml template
+  template:
+    src: ./roles/hyperbridge-relayer/templates/config.toml.j2
+    dest: /home/{{ system_username }}/hyperbridge-relayer/config.toml
+    owner: "{{ system_username }}"
+    group: "{{ system_username }}"
+  register: config
+
+- name: Ensure pip is installed
+  apt:
+    name: python3-pip
+    state: latest
+    update_cache: yes
+
+- name: Ensure Docker SDK for Python is installed
+  pip:
+    name: docker
+    version: '6.1.3'
+    state: present
+
+- name: Ensure Docker-Compose SDK for Python is installed
+  pip:
+    name: docker-compose
+    state: latest
+
+- name: Ensure services are running
+  docker_compose:
+    project_src: /home/{{ system_username }}/hyperbridge-relayer
+    state: present
+    pull: yes
+    restarted: yes
+    remove_orphans: yes
+  when: docker.changed or config.changed

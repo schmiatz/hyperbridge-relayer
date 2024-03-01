@@ -1,0 +1,14 @@
+---
+system_username: hyperbridge
+#Etherscan API Key
+#how to create this key -> https://docs.etherscan.io/getting-started/viewing-api-usage-statistics
+etherscan_api_key: ""
+#Sepolia http(s) RPC addresses
+#comment out the rpcs for the chains you dont want to connect
+#eth_rpc: ""
+#arbitrum_rpc: ""
+#optimism_rpc: ""
+#base_rpc: ""
+#bsc_rpc: ""
+#hex-encoded private key for the relayer
+signer: ""
