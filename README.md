@@ -34,9 +34,9 @@ You need to specify your Ethereum etherscan API key here.
 [How to create this key](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)
 Its used for everything besides BSC.   
 
-#### etherscan_bsc_api_key
+#### bscscan_bsc_api_key
 You need to specify your Binance etherscan API key here.    
-[How to create this key](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)
+[How to create this key](https://docs.bscscan.com/getting-started/viewing-api-usage-statistics)
 Its just used for BSC so if you dont plan to connect the BSC chain to your relayer, you dont need it.      
 
 #### eth_rpc and all the other _rpc variables

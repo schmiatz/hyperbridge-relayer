@@ -1,9 +1,10 @@
 ---
 system_username: hyperbridge
-#Etherscan API Keys
+#API Keys
 #how to create this key -> https://docs.etherscan.io/getting-started/viewing-api-usage-statistics
 etherscan_eth_api_key: ""
-etherscan_bsc_api_key: ""
+#how to create this key -> https://docs.bscscan.com/getting-started/viewing-api-usage-statistics
+bscscan_bsc_api_key: ""
 #Sepolia http(s) RPC addresses
 #comment out the rpcs for the chains you dont want to connect
 #eth_rpc: ""
