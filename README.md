@@ -12,7 +12,8 @@ To use this Playbook you need:
 ## Variables to declare
 ### In the file 'group_vars/all.yml' you need to change this variables:
 - system_username
-- etherscan_api_key
+- etherscan_eth_api_key
+- etherscan_bsc_api_key
 - eth_rpc
 - arbitrum_rpc
 - optimism_rpc
@@ -28,9 +29,15 @@ If you login into your System for example with the command 'ssh hyperbridge@<IP-
 system_username: hyperbridge
 ```
 
-#### etherscan_api_key
-You need to specify your etherscan API here.    
+#### etherscan_eth_api_key
+You need to specify your Ethereum etherscan API key here.    
 [How to create this key](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)
+Its used for everything besides BSC.   
+
+#### etherscan_bsc_api_key
+You need to specify your Binance etherscan API key here.    
+[How to create this key](https://docs.etherscan.io/getting-started/viewing-api-usage-statistics)
+Its just used for BSC so if you dont plan to connect the BSC chain to your relayer, you dont need it.      
 
 #### eth_rpc and all the other _rpc variables
 Here you need to define the RPC http(s) addresses of the Sepolia RPCs you want to connect to the relayer.    
