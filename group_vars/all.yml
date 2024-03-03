@@ -1,5 +1,7 @@
 ---
 system_username: hyperbridge
+# Hyperbridge chain spec, either one of Dev, Gargantua or Messier
+chain: "Gargantua"
 #API Keys
 #how to create this key -> https://docs.etherscan.io/getting-started/viewing-api-usage-statistics
 etherscan_eth_api_key: ""
