@@ -2,6 +2,8 @@
 system_username: hyperbridge
 # Hyperbridge chain spec, either one of Dev, Gargantua or Messier
 chain: "Gargantua"
+#Hyperbidge node ws rpc endpoint
+hyperbridge_node_ws: "ws://127.0.0.1:9944"
 #API Keys
 #how to create this key -> https://docs.etherscan.io/getting-started/viewing-api-usage-statistics
 etherscan_eth_api_key: ""

@@ -3,7 +3,7 @@
 # Hyperbridge chain spec, either one of Dev, Gargantua or Messier
 chain = "{{ chain }}"
 # Hyperbidge node ws rpc endpoint.
-rpc_ws = "ws://127.0.0.1:9944" # example endpoint
+rpc_ws = "{{ hyperbridge_node_ws }}" # example endpoint
 
 {% if eth_rpc is defined %}  
 [ethereum]

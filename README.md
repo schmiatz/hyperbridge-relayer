@@ -12,6 +12,8 @@ To use this Playbook you need:
 ## Variables to declare
 ### In the file 'group_vars/all.yml' you need to change this variables:
 - system_username
+- chain
+- hyperbridge_node_ws
 - etherscan_eth_api_key
 - etherscan_bsc_api_key
 - eth_rpc
@@ -27,6 +29,19 @@ Thats the username of your Ubuntu/Debian User.
 If you login into your System for example with the command 'ssh hyperbridge@<IP-ADDRESS>' your system_username is 'hyperbridge'.   
 ```
 system_username: hyperbridge
+```
+
+#### chain
+The chain you want to start your Relayer in.
+Allowed Values are Dev, Gargantua, Messier or Nexus.
+```
+chain: Gargantua
+```
+
+#### hyperbridge_node_ws
+The Websocket IP and Port of your Hyperbridge Node.   
+```
+hyperbridge_node_ws: ws://127.0.0.1:9944
 ```
 
 #### etherscan_eth_api_key
