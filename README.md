@@ -22,6 +22,7 @@ To use this Playbook you need:
 - base_rpc
 - bsc_rpc
 - signer
+- minimum_profit_percentage
 
 ### Examples and explanation
 #### system_username
@@ -61,6 +62,12 @@ Just leave the rpc variables that you dont want to use commented out.
 
 #### signer
 The Privatekey that will deliver the messages. You will need to have the native Token for the Chains on that key.   
+
+#### minimum_profit_percentage
+Define your profitability configuration. 0 -> 0% i.e relay all requests, even unprofitable ones. 1 -> 1%. ie fees provided for requests must be profitable by at least 1%. etc.    
+```
+minimum_profit_percentage: "0"
+```
 
 ### In the file 'inventory.yml' you need to change this variables:
 - ansible_host

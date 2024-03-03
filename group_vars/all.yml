@@ -18,3 +18,5 @@ bscscan_bsc_api_key: ""
 #bsc_rpc: ""
 #hex-encoded private key for the relayer
 signer: ""
+#Define your profitability configuration. 0 -> 0% i.e relay all requests, even unprofitable ones. 1 -> 1%. ie fees provided for requests must be profitable by at least 1%. etc. 
+minimum_profit_percentage: "0"
