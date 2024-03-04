@@ -66,7 +66,7 @@ The Privatekey that will deliver the messages. You will need to have the native 
 #### minimum_profit_percentage
 Define your profitability configuration. 0 -> 0% i.e relay all requests, even unprofitable ones. 1 -> 1%. ie fees provided for requests must be profitable by at least 1%. etc.    
 ```
-minimum_profit_percentage: "0"
+minimum_profit_percentage: "1"
 ```
 
 ### In the file 'inventory.yml' you need to change this variables:
