@@ -69,6 +69,14 @@ Define your profitability configuration. 0 -> 0% i.e relay all requests, even un
 minimum_profit_percentage: "1"
 ```
 
+#### eth_query_batch_size and all the other query_batch_size
+Maximum block range for eth_getLogs in a single rpc call   
+If this parameter is not supplied the range will not be split into smaller chunks   
+Default value is 1000   
+```
+eth_query_batch_size: "1000"
+```
+
 ### In the file 'inventory.yml' you need to change this variables:
 - ansible_host
 
