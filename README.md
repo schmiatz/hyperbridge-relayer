@@ -94,6 +94,13 @@ cd into this Repo and run the Playbook with 'ansible-playbook playbook.yml'
 
 ## Check your Machine after the run
 Have a look in the docker logs of your newly created Container.   
+Check the running Containers:
 ```
-docker logs -f hyperbridge-relayer-tesseract_relayer-1
+hyperbridge@hyperbridge-relayer01:~$ docker ps
+CONTAINER ID   IMAGE                           COMMAND                  CREATED        STATUS        PORTS     NAMES
+a7953883bbea   polytopelabs/tesseract:latest   "./tesseract --confi…"   22 hours ago   Up 22 hours             hyperbridge-relayer-tesseract_relayer-1
+```
+Grab the Container ID or the Name and check the logs.   
+```
+docker logs -f a7953883bbea
 ```
