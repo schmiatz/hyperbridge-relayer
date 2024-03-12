@@ -94,3 +94,6 @@ cd into this Repo and run the Playbook with 'ansible-playbook playbook.yml'
 
 ## Check your Machine after the run
 Have a look in the docker logs of your newly created Container.   
+```
+docker logs -f hyperbridge-relayer-tesseract_relayer-1
+```
