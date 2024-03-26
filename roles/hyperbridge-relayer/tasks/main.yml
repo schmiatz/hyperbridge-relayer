@@ -22,28 +22,6 @@
     group: "{{ system_username }}"
   register: config
 
-- name: Ensure pip is installed
-  apt:
-    name: python3-pip
-    state: latest
-    update_cache: yes
-
-- name: Ensure Docker SDK for Python is installed
-  pip:
-    name: docker
-    version: '6.1.3'
-    state: present
-
-- name: Ensure Docker-Compose SDK for Python is installed
-  pip:
-    name: docker-compose
-    state: latest
-
-- name: Ensure services are running
-  docker_compose:
-    project_src: /home/{{ system_username }}/hyperbridge-relayer
-    state: present
-    pull: yes
-    restarted: yes
-    remove_orphans: yes
+- name: assure the container is (re)started
+  shell: cd /home/{{ system_username }}/hyperbridge-relayer && docker compose down && docker compose up -d
   when: docker.changed or config.changed
