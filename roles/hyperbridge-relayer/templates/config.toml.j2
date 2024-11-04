@@ -1,26 +1,25 @@
 # Hyperbridge config, required
 [hyperbridge]
-# Hyperbridge chain spec, either one of Dev, Gargantua or Messier
-chain = "{{ chain }}"
+state_machine = "{{state_machine}}"
 # Hyperbidge node ws rpc endpoint.
 rpc_ws = "{{ hyperbridge_node_ws }}" # example endpoint
 
 {% if eth_rpc is defined %}  
 [ethereum]
 # configuration type
-type = "ethereum_sepolia"
+type = "evm"
 # State machine identifier
-state_machine = { Ethereum = "ExecutionLayer" }
+state_machine = "EVM-1"
 # http(s) rpc url for sepolia
-rpc_url = "{{ eth_rpc }}"
+rpc_urls = {{ eth_rpc }}
 # consensus state identifier for sepolia on hyperbridge
 consensus_state_id = "ETH0"
 # etherscan api key for querying Ethereum token price
 etherscan_api_key = "{{ etherscan_eth_api_key }}"
 # Contract address of the HandlerV1 contract
-handler = "0xF763D969aDC8281b1A8459Bde4CE86BA811b0Aaf"
+handler = "0x089248E869AEcd66199b64637207D366D6Cfe92D"
 # Contract address of the IsmpHost contract
-ismp_host = "0xe4226c474A6f4BF285eA80c2f01c0942B04323e5"
+ismp_host = "0x792A6236AF69787C40cF76b69B4c8c7B28c4cA20"
 # Maximum block range for eth_getLogs in a single rpc call
 # if this parameter is not supplied the range will not be split into smaller chunks
 query_batch_size = {{ eth_query_batch_size }}
@@ -31,19 +30,19 @@ signer = "{{ signer }}"
 {% if arbitrum_rpc is defined %} 
 [arbitrum]
 # configuration type
-type = "arbitrum"
+type = "evm"
 # State machine identifier
-state_machine = { Ethereum = "Arbitrum" }
+state_machine = "EVM-42161"
 # http(s) rpc url for arbitrum
-rpc_url = "{{ arbitrum_rpc }}"
+rpc_urls = {{ arbitrum_rpc }}
 # consensus state identifier for arbitrum on hyperbridge, L2s use ethereum as their consensus oracle
 consensus_state_id = "ETH0"
 # etherscan api key for querying Ethereum token price
 etherscan_api_key = "{{ etherscan_eth_api_key }}"
 # Contract address of the HandlerV1 contract
-handler = "0x5cD7935ffE0942f6fF05D447A1325109510DD846"
+handler = "0x089248E869AEcd66199b64637207D366D6Cfe92D"
 # Contract address of the IsmpHost contract
-ismp_host = "0x56101AD00677488B3576C85e9e75d4F0a08BD627"
+ismp_host = "0xE05AFD4Eb2ce6d65c40e1048381BD0Ef8b4B299e"
 # Maximum block range for eth_getLogs in a single rpc call
 # if this parameter is not supplied the range will not be split into smaller chunks
 query_batch_size = {{ arbitrum_query_batch_size }}
@@ -54,19 +53,19 @@ signer = "{{ signer }}"
 {% if optimism_rpc is defined %}
 [optimism]
 # configuration type
-type = "optimism"
+type = "evm"
 # State machine identifier
-state_machine = { Ethereum = "Optimism" }
+state_machine = "EVM-10"
 # http(s) rpc url for optimism
-rpc_url = "{{ optimism_rpc }}"
+rpc_urls = {{ optimism_rpc }}
 # consensus state identifier for optimism on hyperbridge, L2s use ethereum as their consensus oracle
 consensus_state_id = "ETH0"
 # etherscan api key for querying Ethereum token price
 etherscan_api_key = "{{ etherscan_eth_api_key }}"
 # Contract address of the HandlerV1 contract
-handler = "0x8738b27E29Af7c92ba2AF72B2fcF01C8934e3Db0"
+handler = "0x089248E869AEcd66199b64637207D366D6Cfe92D"
 # Contract address of the IsmpHost contract
-ismp_host = "0x39f3D7a7783653a04e2970e35e5f32F0e720daeB"
+ismp_host = "0x78c8A5F27C06757EA0e30bEa682f1FD5C8d7645d"
 # Maximum block range for eth_getLogs in a single rpc call
 # if this parameter is not supplied the range will not be split into smaller chunks
 query_batch_size = {{ optimism_query_batch_size }}
@@ -77,19 +76,19 @@ signer = "{{ signer }}"
 {% if base_rpc is defined %}
 [base]
 # configuration type
-type = "base"
+type = "evm"
 # State machine identifier
-state_machine = { Ethereum = "Base" }
+state_machine = "EVM-8453"
 # http(s) rpc url for base
-rpc_url = "{{ base_rpc }}"
+rpc_urls = {{ base_rpc }}
 # consensus state identifier for base on hyperbridge, L2s use ethereum as their consensus oracle
 consensus_state_id = "ETH0"
 # etherscan api key for querying Ethereum token price
 etherscan_api_key = "{{ etherscan_eth_api_key }}"
 # Contract address of the HandlerV1 contract
-handler = "0x0B26ba93424A7d00153abEb6388C55F960529E89"
+handler = "0x089248E869AEcd66199b64637207D366D6Cfe92D"
 # Contract address of the IsmpHost contract
-ismp_host = "0x1D14e30e440B8DBA9765108eC291B7b66F98Fd09"
+ismp_host = "0x6FFe92e4d7a9D589549644544780e6725E84b248"
 # Maximum block range for eth_getLogs in a single rpc call
 # if this parameter is not supplied the range will not be split into smaller chunks
 query_batch_size = {{ base_query_batch_size }}
@@ -100,19 +99,19 @@ signer = "{{ signer }}"
 {% if bsc_rpc is defined %}
 [bsc]
 # configuration type
-type = "bsc"
+type = "evm"
 # State machine identifier
-state_machine = "Bsc"
+state_machine = "EVM-56"
 # http(s) rpc url for binance smart chain
-rpc_url = "{{ bsc_rpc }}"
+rpc_urls = {{ bsc_rpc }}
 # consensus state identifier for binance smart chain on hyperbridge
 consensus_state_id = "BSC0"
 # etherscan api key for querying BNB token price
 etherscan_api_key = "{{ bscscan_bsc_api_key }}"
 # Contract address of the HandlerV1 contract
-handler = "0x3aBA86C71C86353e5a96E98e1E08411063B5e2DB"
+handler = "0x089248E869AEcd66199b64637207D366D6Cfe92D"
 # Contract address of the IsmpHost contract
-ismp_host = "0x4e5bbdd9fE89F54157DDb64b21eD4D1CA1CDf9a6"
+ismp_host = "0x24B5d421Ec373FcA57325dd2F0C074009Af021F7"
 # Maximum block range for eth_getLogs in a single rpc call
 # if this parameter is not supplied the range will not be split into smaller chunks
 query_batch_size = {{ bsc_query_batch_size }}
@@ -120,29 +119,57 @@ query_batch_size = {{ bsc_query_batch_size }}
 signer = "{{ signer }}"
 {% endif %}
 
+{% if substrate is defined %}
+[substrate]
+type = "substrate"
+# The state machine identifier for this substrate based chain.
+# must be one of:
+# - "POLKADOT-{paraId}"
+# - "KUSAMA-{paraId}"
+state_machine = "KUSAMA-4009"
+# substrate node ws(s) rpc endpoint.
+rpc_ws = "{{ substrate_node_ws }}" # example endpoint
+# Configures the maximum size of an rpc request/response in bytes
+max_rpc_payload_size = 150000000 # 150MB
+# The consensus state identifier for this chain on hyperbridge.
+# Only parachains are supported for now
+consensus_state_id = "PARA"
+# hex-encoded private key for the relayer account on this chain
+signer = "{{ signer_substrate }}"
+{% endif %}
+
 # Relayer config, required
 [relayer]
-# Hyperbridge chain spec, either one of Dev, Gargantua or Messier
-chain = "{{ chain }}"
 # Define your profitability configuration. 0 -> 0% i.e relay all requests, even unprofitable ones. 1 -> 1%. ie fees provided for requests must be profitable by at least 1%. etc. 
 minimum_profit_percentage = {{ minimum_profit_percentage }}
 # (Optional) If not empty, will filter requests to be delivered by originating module identifier (eg contract address)
 module_filter = []
+# How frequently to initiate withdrawals in seconds, defaults to 24 hours
+withdrawal_frequency = {{withdrawal_frequency}}
+# Minimum amount to withdraw when auto-withdrawing, defaults to $100
+minimum_withdrawal_amount = {{minimum_withdrawal_amount}}
+# (Optional) How frequently to retry unprofitable or failed messages in seconds.
+# If this is value not supplied retries will not be enabled.
+unprofitable_retry_frequency = {{unprofitable_retry_frequency}}
 # (Optional) If not empty, only deliver to the specied state-machines
 delivery_endpoints = [
 {% if eth_rpc is defined %}
-    { Ethereum = "ExecutionLayer" },
+    "EVM-1",
 {% endif %}
 {% if arbitrum_rpc is defined %}
-    { Ethereum = "Arbitrum" },
+    "EVM-42161",
 {% endif %}
 {% if optimism_rpc is defined %}
-    { Ethereum = "Optimism" },
+    "EVM-10",
 {% endif %}
 {% if base_rpc is defined %}
-    { Ethereum = "Base" },
+    "EVM-8453",
 {% endif %}
 {% if bsc_rpc is defined %}
-    "Bsc"
+    "EVM-56",
+{% endif %}
+{% if substrate is defined %}
+    "KUSAMA-4009",
 {% endif %}
 ]
+

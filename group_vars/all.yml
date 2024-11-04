@@ -1,7 +1,7 @@
 ---
 system_username: hyperbridge
 # Hyperbridge chain spec, either one of Dev, Gargantua or Messier
-chain: "Gargantua"
+state_machine: "POLKADOT-3367"
 #Hyperbidge node ws rpc endpoint
 hyperbridge_node_ws: "ws://127.0.0.1:9944"
 #API Keys
@@ -9,19 +9,24 @@ hyperbridge_node_ws: "ws://127.0.0.1:9944"
 etherscan_eth_api_key: ""
 #how to create this key -> https://docs.bscscan.com/getting-started/viewing-api-usage-statistics
 bscscan_bsc_api_key: ""
-#Sepolia http(s) RPC addresses
+#http(s) RPC addresses
 #comment out the rpcs for the chains you dont want to connect
-#eth_rpc: ""
+#eth_rpc: [""]
 #eth_query_batch_size: "1000"
-#arbitrum_rpc: ""
+#arbitrum_rpc: [""]
 #arbitrum_query_batch_size: "1000"
-#optimism_rpc: ""
+#optimism_rpc: [""]
 #optimism_query_batch_size: "1000"
-#base_rpc: ""
+#base_rpc: [""]
 #base_query_batch_size: "1000"
-#bsc_rpc: ""
+#bsc_rpc: [""]
 #bsc_query_batch_size: "1000"
+substrate_node_ws:  "ws://127.0.0.1:9944"
+signer_substrate: ""
 #hex-encoded private key for the relayer
 signer: ""
 #Define your profitability configuration. 0 -> 0% i.e relay all requests, even unprofitable ones. 1 -> 1%. ie fees provided for requests must be profitable by at least 1%. etc. 
 minimum_profit_percentage: "1"
+withdrawal_frequency: 86400
+minimum_withdrawal_amount: 100
+unprofitable_retry_frequency: 600
